@@ -1,35 +1,43 @@
 return {
-    {
-        "github/copilot.vim",
-        lazy = false,
-    },
-    -- {
-    --     "zbirenbaum/copilot.lua",
-    --     cmd = "Copilot",
-    --     config = function()
-    --         require("copilot").setup({
-    --             suggestion = { enabled = false },
-    --             panel = { enabled = false },
-    --             copilot_node_command = 'node'
-    --         })
-    --     end,
-    -- },
-    -- {
-    --     "zbirenbaum/copilot-cmp",
-    --     config = function()
-    --         require("copilot_cmp").setup()
-    --     end
-    -- }
-    {
-        "CopilotC-Nvim/CopilotChat.nvim",
-        dependencies = {
-            { "github/copilot.vim" },                 -- or zbirenbaum/copilot.lua
-            { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
-        },
-        build = "make tiktoken",                      -- Only on MacOS or Linux
-        opts = {
-            -- See Configuration section for options
-        },
-        -- See Commands section for default commands if you want to lazy load on them
-    },
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = {
+					enabled = true,
+					auto_trigger = true,
+					keymap = {
+						accept = false,
+					},
+				},
+				panel = {
+					enabled = false,
+				},
+				filetypes = {
+					markdown = true,
+					["."] = false,
+				},
+			})
+		end,
+	},
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		branch = "main",
+		build = "make tiktoken",
+		opts = {
+			window = {
+				layout = "vertical",
+				width = 0.35,
+				border = "rounded",
+			},
+			show_help = false,
+			show_folds = false,
+			highlights = {
+				user = "Identifier",
+				assistant = "Statement",
+			},
+		},
+	},
 }

@@ -4,293 +4,57 @@ return {
     config = function()
         require('bufferline').setup({
             highlights = {
-                fill = {
-                    fg = '',
-                    bg = '',
-                },
-                background = {
-                    fg = '',
-                    bg = '',
-                },
-                tab = {
-                    fg = '#13a6a8',
-                    bg = '',
-                },
-                tab_selected = {
-                    fg = '',
-                    bg = '',
-                },
-                tab_separator = {
-                    fg = '',
-                    bg = '',
-                },
-                tab_separator_selected = {
-                    fg = '',
-                    bg = '',
-                    sp = '',
-                },
-                tab_close = {
-                    fg = '',
-                    bg = '',
-                },
-                close_button = {
-                    fg = '#5c6d74',
-                    bg = '',
-                },
-                close_button_visible = {
-                    fg = '#5c6d74',
-                    bg = '',
-                },
-                close_button_selected = {
-                    fg = '#13a6a8',
-                    bg = '',
-                },
-                buffer = {
-                    fg = '#5c6d74',
-                    bg = '',
-                },
-                buffer_visible = {
-                    fg = '#13a6a8',
-                    bg = '',
-                },
-                buffer_selected = {
-                    fg = '#13a6a8',
-                    bg = '',
-                    bold = true,
-                    italic = true,
-                },
-                numbers = {
-                    fg = '#5c6d74',
-                    bg = '',
-                },
-                numbers_visible = {
-                    fg = '#5c6d74',
-                    bg = '',
-                },
-                numbers_selected = {
-                    fg = '#13a6a8',
-                    bg = '',
-                    bold = true,
-                },
-                diagnostic = {
-                    fg = '',
-                    bg = '',
-                },
-                diagnostic_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                diagnostic_selected = {
-                    fg = '',
-                    bg = '',
-                    bold = true,
-                },
-                hint = {
-                    fg = '',
-                    sp = '',
-                    bg = '',
-                },
-                hint_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                hint_selected = {
-                    fg = '',
-                    bg = '',
-                    sp = '',
-                    bold = true,
-                    italic = true,
-                },
-                hint_diagnostic = {
-                    fg = '',
-                    sp = '',
-                    bg = '',
-                },
-                hint_diagnostic_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                hint_diagnostic_selected = {
-                    fg = '',
-                    bg = '',
-                    sp = '',
-                    bold = true,
-                },
-                info = {
-                    fg = '',
-                    sp = '',
-                    bg = '',
-                },
-                info_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                info_selected = {
-                    fg = '',
-                    bg = '',
-                    sp = '',
-                    bold = true,
-                    italic = true,
-                },
-                info_diagnostic = {
-                    fg = '',
-                    sp = '',
-                    bg = '',
-                },
-                info_diagnostic_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                info_diagnostic_selected = {
-                    fg = '',
-                    bg = '',
-                    sp = '',
-                    bold = true,
-                    italic = true,
-                },
-                warning = {
-                    fg = '',
-                    sp = '',
-                    bg = '',
-                },
-                warning_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                warning_selected = {
-                    fg = '',
-                    bg = '',
-                    sp = '',
-                    bold = true,
-                },
-                warning_diagnostic = {
-                    fg = '',
-                    sp = '',
-                    bg = '',
-                },
-                warning_diagnostic_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                warning_diagnostic_selected = {
-                    fg = '',
-                    bg = '',
-                    sp = '',
-                    bold = true,
-                    italic = true,
-                },
-                error = {
-                    fg = '',
-                    bg = '',
-                    sp = '',
-                },
-                error_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                error_selected = {
-                    fg = '',
-                    bg = '',
-                    sp = '',
-                    bold = true,
-                    italic = true,
-                },
-                error_diagnostic = {
-                    fg = '',
-                    bg = '',
-                    sp = '',
-                },
-                error_diagnostic_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                error_diagnostic_selected = {
-                    fg = '',
-                    bg = '',
-                    sp = '',
-                    bold = true,
-                },
-                modified = {
-                    fg = '',
-                    bg = '',
-                },
-                modified_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                modified_selected = {
-                    fg = '',
-                    bg = '',
-                },
-                duplicate_selected = {
-                    fg = '',
-                    bg = '',
-                },
-                duplicate_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                duplicate = {
-                    fg = '',
-                    bg = '',
-                },
-                separator_selected = {
-                    fg = '',
-                    bg = '',
-                },
-                separator_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                separator = {
-                    fg = '',
-                    bg = '',
-                },
-                indicator_visible = {
-                    fg = '',
-                    bg = '',
-                },
-                indicator_selected = {
-                    fg = '',
-                    bg = '',
-                },
-                pick_selected = {
-                    fg = '',
-                    bg = '',
-                    bold = true,
-                },
-                pick_visible = {
-                    fg = '',
-                    bg = '',
-                    bold = true,
-                },
-                pick = {
-                    fg = '',
-                    bg = '',
-                    bold = true,
-                },
-                offset_separator = {
-                    fg = '',
-                    bg = '',
-                },
-                trunc_marker = {
-                    fg = '',
-                    bg = '',
-                }
+                background = { bg = 'none' },
+                fill = { bg = 'none' },
+                buffer_selected = { bg = 'none' },
+                buffer_visible = { bg = 'none' },
+                close_button = { bg = 'none' },
+                close_button_selected = { bg = 'none' },
+                close_button_visible = { bg = 'none' },
+                duplicate = { bg = 'none' },
+                duplicate_selected = { bg = 'none' },
+                duplicate_visible = { bg = 'none' },
+                error = { bg = 'none' },
+                error_selected = { bg = 'none' },
+                error_visible = { bg = 'none' },
+                hint = { bg = 'none' },
+                hint_selected = { bg = 'none' },
+                hint_visible = { bg = 'none' },
+                indicator_selected = { bg = 'none' },
+                indicator_visible = { bg = 'none' },
+                info = { bg = 'none' },
+                info_selected = { bg = 'none' },
+                info_visible = { bg = 'none' },
+                modified = { bg = 'none' },
+                modified_selected = { bg = 'none' },
+                modified_visible = { bg = 'none' },
+                numbers = { bg = 'none' },
+                numbers_selected = { bg = 'none' },
+                numbers_visible = { bg = 'none' },
+                offset_separator = { bg = 'none' },
+                pick = { bg = 'none' },
+                pick_selected = { bg = 'none' },
+                pick_visible = { bg = 'none' },
+                separator = { bg = 'none' },
+                separator_selected = { bg = 'none' },
+                separator_visible = { bg = 'none' },
+                tab = { bg = 'none' },
+                tab_close = { bg = 'none' },
+                tab_selected = { bg = 'none' },
+                tab_separator = { bg = 'none' },
+                tab_separator_selected = { bg = 'none' },
+                trunc_marker = { bg = 'none' },
+                warning = { bg = 'none' },
+                warning_selected = { bg = 'none' },
+                warning_visible = { bg = 'none' },
             },
             options = {
-                buffer_close_icon = 'x',
-                diagnostics = 'nvim-lsp',
-                diagnostics_indicator = function(count, level)
-                    local icon = level:match("error") and " " or " "
-                    return " " .. icon .. count
-                end,
-            }
+                indicator = {
+                    icon = '',
+                    style = 'none',
+                },
+                separator_style = { '', '' },
+            },
         })
-        vim.keymap.set('n', '<Leader>bp', ':BufferLinePick<CR>')
-        vim.keymap.set('n', '<Leader>bc', ':BufferLinePickClose<CR>')
-        vim.keymap.set('n', '<Leader>bo', ':BufferLineCloseOthers<CR>')
-        vim.keymap.set('n', '<C-m>', ':BufferLineCycleNext<CR>')
-        vim.keymap.set('n', '<C-n>', ':BufferLineCyclePrev<CR>')
     end
 }

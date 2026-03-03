@@ -19,3 +19,4 @@ vim.opt.helplang = 'ja'
 vim.opt.matchtime = 1
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.cursorcolumn = true
+vim.opt.termguicolors = true
