@@ -27,20 +27,17 @@ end
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		local opts = { buffer = event.buf, silent = true }
-
-		map("n", "gk", vim.lsp.buf.hover, opts)
-
+		map("n", "gk", "<cmd>Lspsaga hover_doc<CR>", opts)
+		map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
+		map("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opts)
+		map("n", "gi", "<cmd>Lspsaga implementation<CR>", opts)
+		map("n", "gr", "<cmd>Lspsaga finder<CR>", opts)
+		map("n", "ga", "<cmd>Lspsaga code_action<CR>", opts)
+		map("n", "gh", "<cmd>Lspsaga rename<CR>", opts)
+		map("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 		map("n", "gf", function()
 			vim.lsp.buf.format({ async = true })
 		end, opts)
-
-		map("n", "gD", vim.lsp.buf.declaration, opts)
-		map("n", "gr", vim.lsp.buf.references, opts)
-		map("n", "gh", vim.lsp.buf.rename, opts)
-		map("n", "ga", vim.lsp.buf.code_action, opts)
-		map("n", "ge", vim.diagnostic.open_float, opts)
-		map("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
-		map("n", "gi", "<cmd>Lspsaga peek_implementation<CR>")
 	end,
 })
 
