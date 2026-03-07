@@ -1,8 +1,10 @@
+#!/bin/zsh
+
 cargo install bat
 cargo install lsd
 cargo install sheldon
-cargo install tokei
+cargo install ripgrep
 cargo install tock
 cargo install starship --locked
-cargo install zellij --locked
-cargo install --locked yazi-fm yazi-cli
+cargo install --force yazi-build
+cargo install --force --git https://github.com/sxyazi/yazi.git yazi-build

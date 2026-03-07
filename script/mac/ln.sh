@@ -1,20 +1,40 @@
 #!/bin/zsh
 
-cd $HOME/dotfiles
+set -euo pipefail
+setopt nullglob
 
-for f in .??*; do
-  [[ $f == ".git" ]] && continue
-  [[ $f == ".gitignore" ]] && continue
- 
-  if [[ $f == ".config" ]]; then
-    for config_dir in ${PWD}/"$f"/*; do
-      config_dir_name=$(basename "$config_dir")
-      ln -snfv "$config_dir" $HOME/.config/"$config_dir_name"
-    done
-    continue
-  else
-    ln -snfv ${PWD}/"$f" $HOME/
-  fi
+DOTFILES_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
+HOME_DIR="$HOME"
+
+mkdir -p "$HOME_DIR/.config"
+
+# -----------------------------
+# .config
+# -----------------------------
+if [ -d "$DOTFILES_DIR/.config" ]; then
+  for dir in "$DOTFILES_DIR/.config"/*; do
+    [ -d "$dir" ] || continue
+
+    name=$(basename "$dir")
+    target="$HOME_DIR/.config/$name"
+
+    ln -sfvn "$dir" "$target"
+  done
+fi
+
+# -----------------------------
+# top-level dotfiles
+# -----------------------------
+for file in "$DOTFILES_DIR"/.*; do
+  name=$(basename "$file")
+
+  case "$name" in
+    .|..|.git|.gitignore|.config)
+      continue
+      ;;
+  esac
+
+  target="$HOME_DIR/$name"
+
+  ln -sfvn "$file" "$target"
 done
-
-source $HOME/.zshenv
