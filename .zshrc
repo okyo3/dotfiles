@@ -40,22 +40,24 @@ alias e='exit'
 alias sshell="source $HOME/.zshrc"
 alias dot="cd $HOME/dotfiles"
 alias checkport='lsof -i -P | grep'
-alias kl='kill -9'
 alias cat='bat'
 alias tock='tock -scm -C 4'
+
 ## git
-alias ga='git add'
-alias gc='git commit -m'
-alias gP='git push'
 alias gp='git pull'
-alias gs='git status'
+alias gP='git push'
+alias gs='git switch'
+alias gS='git status'
 alias gb='git branch'
-alias gC='git checkout'
 alias gl='git log'
-alias gd='git diff'
 alias gf='git fetch'
 alias lg='lazygit'
+alias gm='git merge'
+
 ## docker
 alias dc='docker compose'
-alias dcup='docker compose up -d --build'
+alias dcup='docker compose up --build'
 alias dcdel='docker compose down --rmi all --volumes --remove-orphans'
+
+## mise
+alias mr='mise run'
