@@ -9,7 +9,8 @@ return {
 					enabled = true,
 					auto_trigger = true,
 					keymap = {
-						accept = false,
+						accept = "<Tab>",
+						dissmiss = "<S-Tab>",
 					},
 				},
 				panel = {

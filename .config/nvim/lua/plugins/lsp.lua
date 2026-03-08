@@ -81,6 +81,10 @@ return {
 			"fang2hou/blink-copilot",
 		},
 		opts = {
+			keymap = {
+				["<CR>"] = { "accept", "fallback" },
+			},
+
 			snippets = {
 				expand = function(snippet)
 					require("luasnip").lsp_expand(snippet)
@@ -88,6 +92,9 @@ return {
 			},
 
 			completion = {
+				ghost_text = {
+					enabled = true,
+				},
 				menu = {
 					border = "rounded",
 					draw = {
