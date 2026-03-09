@@ -25,19 +25,22 @@ return {
 			pattern = "*",
 			callback = function(args)
 				local ft = vim.bo[args.buf].filetype
-				-- filetype に対応するパーサー名を取得（なければ filetype をそのまま使う）
 				local lang = vim.treesitter.language.get_lang(ft) or ft
 
-				-- パーサーが利用可能かチェック
 				if not pcall(vim.treesitter.language.add, lang) then
 					return
 				end
 
-				-- ハイライトを有効にする
-				vim.treesitter.start(args.buf, lang)
+				local ok = pcall(vim.treesitter.start, args.buf, lang)
+				if not ok then
+					return
+				end
 
-				-- インデントを有効にする
 				vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+				vim.wo[0].foldmethod = "expr"
+				vim.wo[0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+				vim.wo[0].foldlevel = 99
 			end,
 		})
 	end,
