@@ -111,7 +111,25 @@ return {
 		"shellRaining/hlchunk.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
-			require("hlchunk").setup({})
+			require("hlchunk").setup({
+				chunk = {
+					enable = true,
+					style = "#008b8b",
+				},
+				line_num = {
+					enable = false,
+					style = "#008b8b",
+				},
+				blank = {
+					enable = false,
+				},
+				indent = {
+					enable = false,
+				},
+				symbols = {
+					enable = false,
+				},
+			})
 		end,
 	},
 	{
