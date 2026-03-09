@@ -8,3 +8,6 @@ automatic_backups/
 # yazi
 **/yazi/flavors
 **/yazi/plugins
+
+# lazygit
+**/lazygit/state.yml

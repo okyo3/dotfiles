@@ -61,3 +61,6 @@ alias dcdel='docker compose down --rmi all --volumes --remove-orphans'
 
 ## mise
 alias mr='mise run'
+
+## nvim
+alias v='nvim'
