@@ -64,3 +64,21 @@ alias mr='mise run'
 
 ## nvim
 alias v='nvim'
+
+nv() {
+	if [[ -n "$WEZTERM_PANE" ]]; then
+		local base_pane="$WEZTERM_PANE"
+		local -a top_cmd
+
+		wezterm cli split-pane --pane-id "$base_pane" --top-level --right --percent 30 --cwd "$PWD" >/dev/null || return 1
+
+		top_cmd=(wezterm cli split-pane --pane-id "$base_pane" --top --percent 70 --cwd "$PWD" nvim)
+		top_cmd+=("$@")
+		"${top_cmd[@]}" >/dev/null || return 1
+
+		wezterm cli activate-pane-direction --pane-id "$base_pane" Up >/dev/null
+		return
+	fi
+
+	nvim "$@"
+}

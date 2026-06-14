@@ -3,6 +3,9 @@
 brew install git
 brew install lazygit
 brew install mas
+brew install mise
+brew install neovim
+brew install tree-sitter-cli
 
 brew install --cask google-chrome
 brew install --cask microsoft-edge

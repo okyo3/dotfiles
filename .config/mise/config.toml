@@ -1,6 +1,6 @@
 [tools]
 go = "latest"
-terraform = "latest"
-node = "22"
+node = "latest"
 python = "latest"
-bun = "latest"
+mysql = "latest"
+aws-cli = "latest"

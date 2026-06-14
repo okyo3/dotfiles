@@ -18,11 +18,13 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 		},
 		config = function()
+			local enabled_servers = {}
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 			require("mason").setup()
 			require("mason-lspconfig").setup({
+				ensure_installed = { "gopls" },
 				automatic_installation = true,
 			})
 
@@ -30,40 +32,31 @@ return {
 				capabilities = capabilities,
 			})
 
+			vim.lsp.config("gopls", {
+				settings = {
+					gopls = {
+						gofumpt = true,
+						staticcheck = true,
+						analyses = {
+							unusedparams = true,
+							shadow = true,
+						},
+					},
+				},
+			})
+
 			for _, server in ipairs(require("mason-lspconfig").get_installed_servers()) do
+				enabled_servers[server] = true
 				vim.lsp.enable(server)
+			end
+
+			if not enabled_servers.gopls then
+				vim.lsp.enable("gopls")
 			end
 
 			vim.diagnostic.config({
 				virtual_text = false,
 				severity_sort = true,
-			})
-		end,
-	},
-
-	-------------------------------------------------
-	-- none-ls
-	-------------------------------------------------
-	{
-		"nvimtools/none-ls.nvim",
-		dependencies = {
-			"williamboman/mason.nvim",
-			"jay-babu/mason-null-ls.nvim",
-		},
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			local null_ls = require("null-ls")
-
-			require("mason-null-ls").setup({
-				automatic_installation = true,
-			})
-
-			null_ls.setup({
-				sources = {
-					-- null_ls.builtins.formatting.prettier,
-					-- null_ls.builtins.formatting.stylua,
-					-- null_ls.builtins.diagnostics.eslint,
-				},
 			})
 		end,
 	},

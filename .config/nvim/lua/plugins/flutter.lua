@@ -21,11 +21,6 @@ return {
 			dev_tools = {
 				autostart = true,
 			},
-			lsp = {
-				color = {
-					enabled = true,
-				},
-			},
 		})
 	end,
 }

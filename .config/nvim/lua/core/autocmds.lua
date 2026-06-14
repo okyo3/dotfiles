@@ -1,22 +1,3 @@
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "*",
-	callback = function()
-		local groups = {
-			"StatusLine", "StatusLineNC",
-			"WinBar", "WinBarNC",
-			"CursorLine", "CursorColumn",
-			"NavicText", "NavicSeparator",
-		}
-		for _, group in ipairs(groups) do
-			local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = group })
-			if ok then
-				hl.bg = nil
-				vim.api.nvim_set_hl(0, group, hl)
-			end
-		end
-	end,
-})
-
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "go",
 
@@ -24,6 +5,28 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.tabstop = 4
 		vim.opt_local.softtabstop = 4
 		vim.opt_local.shiftwidth = 4
+	end,
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if not client or client.name ~= "gopls" then
+			return
+		end
+
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			buffer = args.buf,
+			group = vim.api.nvim_create_augroup("GoFormatOnSave", { clear = false }),
+			callback = function()
+				vim.lsp.buf.format({
+					bufnr = args.buf,
+					id = client.id,
+					async = false,
+					timeout_ms = 2000,
+				})
+			end,
+		})
 	end,
 })
 

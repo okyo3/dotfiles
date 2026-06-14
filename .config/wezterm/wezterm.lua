@@ -1,17 +1,26 @@
 local wezterm = require("wezterm")
 local config = {}
 
-wezterm.on("toggle_opacity", function(window)
-	local overrides = window:get_config_overrides() or {}
-	if overrides.window_background_opacity == 0.95 then
-		overrides.window_background_opacity = 0.5
-		overrides.macos_window_background_blur = 0
-	else
-		overrides.window_background_opacity = 0.95
-		overrides.macos_window_background_blur = 15
-	end
-	window:set_config_overrides(overrides)
-end)
+local function prompt_workspace_name(window, pane)
+	window:perform_action(
+		wezterm.action.PromptInputLine({
+			description = "(wezterm) Workspace name:",
+			action = wezterm.action_callback(function(inner_window, inner_pane, line)
+				if not line or line == "" then
+					return
+				end
+
+				inner_window:perform_action(
+					wezterm.action.SwitchToWorkspace({
+						name = line,
+					}),
+					inner_pane
+				)
+			end),
+		}),
+		pane
+	)
+end
 
 config.adjust_window_size_when_changing_font_size = false
 config.check_for_updates = false
@@ -44,9 +53,13 @@ config.hyperlink_rules = {
 	},
 }
 config.mouse_wheel_scrolls_tabs = false
-config.show_update_window = false
 config.warn_about_missing_glyphs = false
 config.window_close_confirmation = "NeverPrompt"
+config.color_scheme = "iceberg-dark"
+config.use_fancy_tab_bar = false
+config.colors = {
+	split = "#3b4261",
+}
 
 config.disable_default_key_bindings = true
 config.leader = { key = "l", mods = "CTRL" }
@@ -64,7 +77,6 @@ config.keys = {
 	{ key = "f", mods = "LEADER", action = wezterm.action.ToggleFullScreen },
 	{ key = "q", mods = "LEADER", action = wezterm.action.QuitApplication },
 	{ key = "p", mods = "LEADER", action = wezterm.action.ActivateCommandPalette },
-	{ key = "o", mods = "LEADER", action = wezterm.action.EmitEvent("toggle_opacity") },
 	{ key = "=", mods = "LEADER", action = wezterm.action.IncreaseFontSize },
 	{ key = "-", mods = "LEADER", action = wezterm.action.DecreaseFontSize },
 	{ key = "N", mods = "LEADER|SHIFT", action = wezterm.action.SpawnWindow },
@@ -80,19 +92,9 @@ config.keys = {
 	{
 		key = "n",
 		mods = "LEADER|CTRL",
-		action = wezterm.action.PromptInputLine({
-			description = "(wezterm) Create new workspace:",
-			action = wezterm.action_callback(function(window, pane, line)
-				if line then
-					window:perform_action(
-						wezterm.action.SwitchToWorkspace({
-							name = line,
-						}),
-						pane
-					)
-				end
-			end),
-		}),
+		action = wezterm.action_callback(function(window, pane)
+			prompt_workspace_name(window, pane)
+		end),
 	},
 	{
 		key = "w",
@@ -142,12 +144,6 @@ config.tab_max_width = 50
 config.show_new_tab_button_in_tab_bar = false
 -- config.show_close_tab_button_in_tabs = false
 
-config.colors = {
-	tab_bar = {
-		inactive_tab_edge = "none",
-	},
-}
-
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_left_half_circle_thick
 local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_right_half_circle_thick
 wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
@@ -173,8 +169,6 @@ wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
 	}
 end)
 
-config.command_palette_bg_color = "#00001d"
-config.command_palette_fg_color = "#008888"
 config.command_palette_rows = 24
 config.enable_scroll_bar = false
 config.font_size = 11.5
@@ -184,13 +178,6 @@ config.inactive_pane_hsb = {
 	brightness = 0.3,
 }
 config.integrated_title_button_alignment = "Right"
-config.window_background_gradient = {
-	colors = {
-		"#000015",
-	},
-}
-config.window_background_opacity = 0.95
-config.macos_window_background_blur = 15
 config.window_decorations = "RESIZE"
 config.window_frame = {
 	inactive_titlebar_bg = "none",

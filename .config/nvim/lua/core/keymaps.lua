@@ -41,16 +41,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--------------------------------------------------
--- BufferLine
--------------------------------------------------
-map("n", "<leader>bp", "<cmd>BufferLinePick<CR>", { silent = true, desc = "Pick buffer" })
-map("n", "<leader>bc", "<cmd>BufferLinePickClose<CR>", { silent = true, desc = "Pick & close buffer" })
-map("n", "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", { silent = true, desc = "Close other buffers" })
-map("n", "<C-m>", "<cmd>BufferLineCycleNext<CR>", { silent = true, desc = "Next buffer" })
-map("n", "<C-n>", "<cmd>BufferLineCyclePrev<CR>", { silent = true, desc = "Previous buffer" })
-
--------------------------------------------------
 -- Neo-tree
 -------------------------------------------------
 map("n", "<leader>e", "<cmd>Neotree float<CR>", { silent = true, desc = "Explorer (float)" })
@@ -91,12 +81,6 @@ map({ "n", "x" }, "<leader>sr", function()
 	require("ssr").open()
 end, { silent = true, desc = "Structural replace" })
 
--------------------------------------------------
--- Hop
--------------------------------------------------
-map("n", "<leader>p", "<cmd>HopWord<CR>", { silent = true, desc = "Hop word" })
-
--------------------------------------------------
 -- Smart Splits (resize)
 -------------------------------------------------
 map("n", "<leader>h", function()
@@ -116,26 +100,15 @@ map("n", "<leader>l", function()
 end, { desc = "Resize right" })
 
 -------------------------------------------------
--- Navbuddy
--------------------------------------------------
-map("n", "<leader>nb", "<cmd>Navbuddy<CR>", { silent = true, desc = "Navbuddy" })
-
 vim.keymap.set("n", "<leader>hb", function()
 	require("gitsigns").toggle_current_line_blame()
 end, { desc = "Toggle Git Blame" })
-
-pcall(function()
-	local wk = require("which-key")
-	wk.register({
-		g = { name = "Git" },
-		a = { name = "AI" },
-	}, { prefix = "<leader>" })
-end)
 
 -------------------------------------------------
 -- Copilot Chat
 -------------------------------------------------
 map("n", "<leader>aa", "<cmd>CopilotChatToggle<CR>", { silent = true, desc = "AI Chat Toggle" })
+map("n", "<leader>ag", "<cmd>CopilotChatAgent<CR>", { silent = true, desc = "AI Agent Chat" })
 map("n", "<leader>ae", "<cmd>CopilotChatExplain<CR>", { silent = true, desc = "AI Explain" })
 map("n", "<leader>af", "<cmd>CopilotChatFix<CR>", { silent = true, desc = "AI Fix" })
 map("n", "<leader>at", "<cmd>CopilotChatTests<CR>", { silent = true, desc = "AI Generate Tests" })
@@ -144,5 +117,3 @@ map("n", "<leader>ad", "<cmd>CopilotChatDocs<CR>", { silent = true, desc = "AI G
 map("n", "<leader>ac", "<cmd>CopilotChatCommit<CR>", { silent = true, desc = "AI Commit Message" })
 map("v", "<leader>ae", "<cmd>CopilotChatExplain<CR>", { silent = true, desc = "AI Explain Selection" })
 map("v", "<leader>af", "<cmd>CopilotChatFix<CR>", { silent = true, desc = "AI Fix Selection" })
-
-map("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Toggle Zen Mode" })

@@ -1,14 +1,5 @@
 return {
 	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		opts = {
-			plugins = {
-				spelling = true,
-			},
-		},
-	},
-	{
 		"Wansmer/treesj",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		event = { "BufReadPre", "BufNewFile" },
@@ -44,14 +35,6 @@ return {
 					replace_all = "<leader><cr>",
 				},
 			})
-		end,
-	},
-	{
-		"phaazon/hop.nvim",
-		branch = "v2", -- optional but strongly recommended
-		config = function()
-			-- you can configure Hop the way you like here; see :h hop-config
-			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 		end,
 	},
 	{
@@ -91,25 +74,5 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"folke/zen-mode.nvim",
-		cmd = "ZenMode",
-		opts = {
-			window = {
-				backdrop = 0.95,
-				width = 80,
-				height = 0.8,
-				options = {
-					number = false,
-					relativenumber = false,
-					cursorline = false,
-				},
-			},
-			plugins = {
-				twilight = true,
-				gitsigns = false,
-			},
-		},
 	},
 }

@@ -20,22 +20,9 @@ return {
 			return vim.fn.fnamemodify(filepath, ":~")
 		end
 
-		-- 現在のテーマを取得
-		local theme = require("lualine.themes.ayu_dark")
-
-		-- c と x を透過
-		for _, mode in pairs(theme) do
-			if mode.c then
-				mode.c.bg = "none"
-			end
-			if mode.x then
-				mode.x.bg = "none"
-			end
-		end
-
 		require("lualine").setup({
 			options = {
-				theme = theme,
+				theme = "auto",
 				section_separators = { left = "", right = "" },
 			},
 			sections = {
