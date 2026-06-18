@@ -46,10 +46,6 @@ if [ -d "$DOTFILES_DIR/.codex" ]; then
   mkdir -p "$HOME_DIR/.codex"
 fi
 
-if [ -f "$DOTFILES_DIR/.codex/config.toml" ]; then
-  ln -sfvn "$DOTFILES_DIR/.codex/config.toml" "$HOME_DIR/.codex/config.toml"
-fi
-
 if [ -f "$DOTFILES_DIR/.codex/AGENTS.md" ]; then
   ln -sfvn "$DOTFILES_DIR/.codex/AGENTS.md" "$HOME_DIR/.codex/AGENTS.md"
 fi

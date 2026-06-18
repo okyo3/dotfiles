@@ -11,3 +11,6 @@ automatic_backups/
 
 # lazygit
 **/lazygit/state.yml
+
+# codex
+.codex/config.toml
