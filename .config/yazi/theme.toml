@@ -1,45 +1,45 @@
 [manager]
-find_keyword = {bg = "black", fg = "red", reversed = true}
+find_keyword = {bg = "#161821", fg = "#e27878", reversed = true}
 
-marker_copied   = {fg = "green", bg = "green"}
-marker_cut      = {fg = "red", bg = "red"}
-marker_marked   = {fg = "magenta", bg = "magenta"}
-marker_selected = {fg = "cyan", bg = "cyan"}
+marker_copied   = {fg = "#b4be82", bg = "#b4be82"}
+marker_cut      = {fg = "#e27878", bg = "#e27878"}
+marker_marked   = {fg = "#a093c7", bg = "#a093c7"}
+marker_selected = {fg = "#89b8c2", bg = "#89b8c2"}
 
-cwd = {fg = "yellow"}
-hovered = {reversed = true}
-preview_hovered = {reversed = true}
+cwd = {fg = "#e2a478"}
+hovered = {fg = "#c6c8d1", bg = "#2e313f"}
+preview_hovered = {fg = "#c6c8d1", bg = "#2e313f"}
 
-tab_active   = {reversed = true}
-tab_inactive = {}
+tab_active   = {fg = "#c6c8d1", bg = "#3b4261"}
+tab_inactive = {fg = "#6b7089", bg = "#1e2132"}
 tab_width    = 1
 
-count_copied   = {fg = "black", bg = "green"}
-count_cut      = {fg = "black", bg = "red"}
-count_selected = {fg = "black", bg = "yellow"}
+count_copied   = {fg = "#161821", bg = "#b4be82"}
+count_cut      = {fg = "#161821", bg = "#e27878"}
+count_selected = {fg = "#161821", bg = "#e2a478"}
 
-border_style = {fg = "white"}
+border_style = {fg = "#3b4261"}
 
 [status]
 separator_open = ""
 separator_close = ""
 separator_style = {fg = "reset", bg = "reset"}
 
-mode_normal = {fg = "blue", bg = "reset"}
-mode_select = {fg = "magenta", bg = "reset"}
-mode_unset  = {fg = "yellow", bg = "reset"}
+mode_normal = {fg = "#84a0c6", bg = "reset"}
+mode_select = {fg = "#a093c7", bg = "reset"}
+mode_unset  = {fg = "#e2a478", bg = "reset"}
 
-progress_label  = {fg = "blue", bg = "black", bold = true}
-progress_normal = {fg = "darkgrey", bg = "black"}
-progress_error  = {fg = "darkgrey", bg = "black"}
+progress_label  = {fg = "#84a0c6", bg = "#161821", bold = true}
+progress_normal = {fg = "#6b7089", bg = "#161821"}
+progress_error  = {fg = "#e27878", bg = "#161821"}
 
-permissions_t = {fg = "green"}
-permissions_r = {fg = "yellow"}
-permissions_w = {fg = "red"}
-permissions_x = {fg = "cyan"}
-permissions_s = {fg = "magenta"}
+permissions_t = {fg = "#b4be82"}
+permissions_r = {fg = "#e2a478"}
+permissions_w = {fg = "#e27878"}
+permissions_x = {fg = "#89b8c2"}
+permissions_s = {fg = "#a093c7"}
 
 [select]
-border = {fg = "blue"}
-active = {fg = "magenta"}
+border = {fg = "#84a0c6"}
+active = {fg = "#a093c7"}
 inactive = {}

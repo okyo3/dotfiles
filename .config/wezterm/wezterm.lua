@@ -59,6 +59,21 @@ config.color_scheme = "iceberg-dark"
 config.use_fancy_tab_bar = false
 config.colors = {
 	split = "#3b4261",
+	tab_bar = {
+		background = "#161821",
+		active_tab = {
+			bg_color = "#3b4261",
+			fg_color = "#c6c8d1",
+		},
+		inactive_tab = {
+			bg_color = "#1e2132",
+			fg_color = "#6b7089",
+		},
+		inactive_tab_hover = {
+			bg_color = "#3b4261",
+			fg_color = "#c6c8d1",
+		},
+	},
 }
 
 config.disable_default_key_bindings = true
@@ -138,35 +153,19 @@ config.keys = {
 config.show_tabs_in_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.show_new_tab_button_in_tab_bar = false
-config.tab_bar_at_bottom = true
-config.tab_max_width = 50
+config.show_tab_index_in_tab_bar = false
+config.show_close_tab_button_in_tabs = false
+config.tab_max_width = 28
 
-config.show_new_tab_button_in_tab_bar = false
--- config.show_close_tab_button_in_tabs = false
+local function basename(path)
+	return path:gsub("/+$", ""):match("([^/]+)$") or path
+end
 
-local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_left_half_circle_thick
-local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_right_half_circle_thick
 wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
-	local background = "#5c6d74"
-	local foreground = "#FFFFFF"
-	local edge_background = "none"
-	if tab.is_active then
-		background = "#13a6a8"
-		foreground = "#FFFFFF"
-	end
-	local edge_foreground = background
-	local title = " " .. wezterm.truncate_right(tab.active_pane.title, max_width - 1) .. " "
-	return {
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_LEFT_ARROW },
-		{ Background = { Color = background } },
-		{ Foreground = { Color = foreground } },
-		{ Text = title },
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_RIGHT_ARROW },
-	}
+	local cwd = tab.active_pane.current_working_dir
+	local title = cwd and basename(tostring(cwd):gsub("^file://[^/]*", ""):gsub("%%20", " ")) or tab.active_pane.title
+	title = wezterm.truncate_right(title, math.max(max_width - 4, 1))
+	return "  " .. title .. "  "
 end)
 
 config.command_palette_rows = 24
@@ -174,8 +173,8 @@ config.enable_scroll_bar = false
 config.font_size = 11.5
 config.inactive_pane_hsb = {
 	hue = 1.0,
-	saturation = 1.5,
-	brightness = 0.3,
+	saturation = 0.9,
+	brightness = 0.55,
 }
 config.integrated_title_button_alignment = "Right"
 config.window_decorations = "RESIZE"
