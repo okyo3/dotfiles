@@ -1,0 +1,108 @@
+# Ghostty configuration aligned with .config/wezterm/wezterm.lua
+
+# Window
+window-width = 155
+window-height = 45
+window-padding-x = 23
+window-padding-y = 23
+window-padding-color = background
+window-save-state = never
+window-new-tab-position = current
+window-show-tab-bar = auto
+
+# macOS UI
+macos-titlebar-style = tabs
+macos-window-buttons = hidden
+macos-titlebar-proxy-icon = hidden
+macos-option-as-alt = true
+
+# GTK UI
+gtk-tabs-location = top
+gtk-titlebar-style = tabs
+gtk-toolbar-style = flat
+gtk-wide-tabs = false
+
+# Font
+font-size = 11.5
+window-inherit-font-size = false
+
+# Iceberg-like colors
+background = #161821
+foreground = #c6c8d1
+cursor-color = #c6c8d1
+cursor-text = #161821
+selection-background = #3b4261
+selection-foreground = #c6c8d1
+split-divider-color = #3b4261
+minimum-contrast = 1.1
+
+palette = 0=#1e2132
+palette = 1=#e27878
+palette = 2=#b4be82
+palette = 3=#e2a478
+palette = 4=#84a0c6
+palette = 5=#a093c7
+palette = 6=#89b8c2
+palette = 7=#c6c8d1
+palette = 8=#6b7089
+palette = 9=#e98989
+palette = 10=#c0ca8e
+palette = 11=#e9b189
+palette = 12=#91acd1
+palette = 13=#ada0d3
+palette = 14=#95c4ce
+palette = 15=#d2d4de
+
+# Split focus dimming
+unfocused-split-opacity = 0.55
+unfocused-split-fill = #161821
+
+# Interaction
+mouse-hide-while-typing = true
+scrollbar = never
+confirm-close-surface = false
+link-url = true
+link-previews = false
+clipboard-paste-protection = true
+
+# Working directory inheritance
+window-inherit-working-directory = true
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
+
+# Quick terminal hotkey
+quick-terminal-position = top
+quick-terminal-size = 45%
+quick-terminal-animation-duration = 0.12
+quick-terminal-autohide = true
+keybind = global:alt+space=toggle_quick_terminal
+
+# Keybindings inspired by the WezTerm leader setup
+keybind = ctrl+l>t=new_tab
+keybind = ctrl+l>shift+n=new_window
+keybind = ctrl+l>h=goto_split:left
+keybind = ctrl+l>j=goto_split:down
+keybind = ctrl+l>k=goto_split:up
+keybind = ctrl+l>l=goto_split:right
+keybind = ctrl+l>n=previous_tab
+keybind = ctrl+l>m=next_tab
+keybind = ctrl+l>d=close_surface
+keybind = ctrl+l>w=close_tab
+keybind = ctrl+l>f=toggle_fullscreen
+keybind = ctrl+l>p=toggle_command_palette
+keybind = ctrl+l>equal=increase_font_size:1
+keybind = ctrl+l>minus=decrease_font_size:1
+keybind = ctrl+l>shift+v=new_split:right
+keybind = ctrl+l>shift+h=new_split:down
+keybind = ctrl+l>ctrl+s=copy_url_to_clipboard
+keybind = ctrl+l>ctrl+v=paste_from_clipboard
+
+# Direct shortcuts matching the current WezTerm config
+keybind = alt+n=previous_tab
+keybind = alt+m=next_tab
+keybind = alt+minus=decrease_font_size:1
+keybind = alt+equal=increase_font_size:1
+keybind = alt+h=resize_split:left,10
+keybind = alt+j=resize_split:down,10
+keybind = alt+k=resize_split:up,10
+keybind = alt+l=resize_split:right,10
