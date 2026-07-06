@@ -1,6 +1,34 @@
 [tools]
+# ランタイム
 go = "latest"
 node = "latest"
 python = "latest"
+rust = "latest"
+bun = "latest"
+crystal = "latest"
+lua = "latest"
+flutter = "latest"
 mysql = "latest"
+postgres = "latest"
 aws-cli = "latest"
+
+# CLIツール
+neovim = "latest"
+lazygit = "latest"
+ripgrep = "latest"
+bat = "latest"
+lsd = "latest"
+starship = "latest"
+yazi = "latest"
+tree-sitter = "latest"
+sheldon = "latest"
+mas = "latest"
+gh = "latest"
+jq = "latest"
+delta = "latest"
+"cargo:tock" = "latest"
+
+# AI
+"npm:kiro-cli" = "latest"
+codex = "latest"
+copilot = "latest"

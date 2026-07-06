@@ -22,9 +22,9 @@ setopt EXTENDED_HISTORY
 
 # eval
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 eval "$(sheldon source)"
-eval "$(mise activate zsh)"
 
 # alias
 alias ls='lsd'
@@ -71,9 +71,9 @@ nv() {
 		local base_pane="$WEZTERM_PANE"
 		local -a top_cmd
 
-		wezterm cli split-pane --pane-id "$base_pane" --top-level --right --percent 40 --cwd "$PWD" >/dev/null || return 1
+		wezterm cli split-pane --pane-id "$base_pane" --top-level --right --percent 50 --cwd "$PWD" >/dev/null || return 1
 
-		top_cmd=(wezterm cli split-pane --pane-id "$base_pane" --top --percent 70 --cwd "$PWD" nvim)
+		top_cmd=(wezterm cli split-pane --pane-id "$base_pane" --top --percent 80 --cwd "$PWD" nvim)
 		top_cmd+=("$@")
 		"${top_cmd[@]}" >/dev/null || return 1
 
