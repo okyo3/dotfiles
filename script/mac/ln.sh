@@ -29,7 +29,7 @@ for file in "$DOTFILES_DIR"/.*; do
   name=$(basename "$file")
 
   case "$name" in
-    .|..|.git|.gitignore|.config|.codex)
+    .|..|.git|.gitignore|.config|.ai)
       continue
       ;;
   esac
@@ -40,12 +40,14 @@ for file in "$DOTFILES_DIR"/.*; do
 done
 
 # -----------------------------
-# Codex
+# AI Agents
 # -----------------------------
-if [ -d "$DOTFILES_DIR/.codex" ]; then
-  mkdir -p "$HOME_DIR/.codex"
-fi
+AGENTS_SRC="$DOTFILES_DIR/.ai/AGENTS.md"
 
-if [ -f "$DOTFILES_DIR/.codex/AGENTS.md" ]; then
-  ln -sfvn "$DOTFILES_DIR/.codex/AGENTS.md" "$HOME_DIR/.codex/AGENTS.md"
-fi
+# Codex
+mkdir -p "$HOME_DIR/.codex"
+ln -sfvn "$AGENTS_SRC" "$HOME_DIR/.codex/AGENTS.md"
+
+# Kiro CLI (steering file)
+mkdir -p "$HOME_DIR/.kiro/steering"
+ln -sfvn "$AGENTS_SRC" "$HOME_DIR/.kiro/steering/AGENTS.md"
