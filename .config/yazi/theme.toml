@@ -1,45 +1,42 @@
-[manager]
-find_keyword = {bg = "#161821", fg = "#e27878", reversed = true}
+[mgr]
+find_keyword = { bg = "#161821", fg = "#e27878", reversed = true }
 
-marker_copied   = {fg = "#b4be82", bg = "#b4be82"}
-marker_cut      = {fg = "#e27878", bg = "#e27878"}
-marker_marked   = {fg = "#a093c7", bg = "#a093c7"}
-marker_selected = {fg = "#89b8c2", bg = "#89b8c2"}
+marker_copied   = { fg = "#b4be82", bg = "#b4be82" }
+marker_cut      = { fg = "#e27878", bg = "#e27878" }
+marker_marked   = { fg = "#a093c7", bg = "#a093c7" }
+marker_selected = { fg = "#89b8c2", bg = "#89b8c2" }
 
-cwd = {fg = "#e2a478"}
-hovered = {fg = "#c6c8d1", bg = "#2e313f"}
-preview_hovered = {fg = "#c6c8d1", bg = "#2e313f"}
+cwd = { fg = "#e2a478" }
 
-tab_active   = {fg = "#c6c8d1", bg = "#3b4261"}
-tab_inactive = {fg = "#6b7089", bg = "#1e2132"}
-tab_width    = 1
+count_copied   = { fg = "#161821", bg = "#b4be82" }
+count_cut      = { fg = "#161821", bg = "#e27878" }
+count_selected = { fg = "#161821", bg = "#e2a478" }
 
-count_copied   = {fg = "#161821", bg = "#b4be82"}
-count_cut      = {fg = "#161821", bg = "#e27878"}
-count_selected = {fg = "#161821", bg = "#e2a478"}
+border_style = { fg = "#3b4261" }
 
-border_style = {fg = "#3b4261"}
+[tabs]
+active   = { fg = "#c6c8d1", bg = "#3b4261" }
+inactive = { fg = "#6b7089", bg = "#1e2132" }
+
+[mode]
+normal_main = { fg = "#84a0c6", bg = "reset" }
+select_main = { fg = "#a093c7", bg = "reset" }
+unset_main  = { fg = "#e2a478", bg = "reset" }
 
 [status]
-separator_open = ""
-separator_close = ""
-separator_style = {fg = "reset", bg = "reset"}
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
-mode_normal = {fg = "#84a0c6", bg = "reset"}
-mode_select = {fg = "#a093c7", bg = "reset"}
-mode_unset  = {fg = "#e2a478", bg = "reset"}
+progress_label  = { fg = "#84a0c6", bg = "#161821", bold = true }
+progress_normal = { fg = "#6b7089", bg = "#161821" }
+progress_error  = { fg = "#e27878", bg = "#161821" }
 
-progress_label  = {fg = "#84a0c6", bg = "#161821", bold = true}
-progress_normal = {fg = "#6b7089", bg = "#161821"}
-progress_error  = {fg = "#e27878", bg = "#161821"}
+perm_read  = { fg = "#e2a478" }
+perm_write = { fg = "#e27878" }
+perm_exec  = { fg = "#89b8c2" }
+perm_sep   = { fg = "#a093c7" }
 
-permissions_t = {fg = "#b4be82"}
-permissions_r = {fg = "#e2a478"}
-permissions_w = {fg = "#e27878"}
-permissions_x = {fg = "#89b8c2"}
-permissions_s = {fg = "#a093c7"}
-
-[select]
-border = {fg = "#84a0c6"}
-active = {fg = "#a093c7"}
+[pick]
+border   = { fg = "#84a0c6" }
+active   = { fg = "#a093c7" }
 inactive = {}

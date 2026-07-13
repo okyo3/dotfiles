@@ -53,7 +53,7 @@ map("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<CR>", { silent = t
 map("n", "<leader>fl", "<cmd>Telescope live_grep<CR>", { silent = true, desc = "Live grep" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { silent = true, desc = "Help tags" })
 map("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { silent = true, desc = "Keymaps" })
-map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { silent = true, desc = "Buffers" })
+
 
 -------------------------------------------------
 -- ToggleTerm
