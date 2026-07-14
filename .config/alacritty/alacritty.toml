@@ -1,0 +1,39 @@
+[general]
+import = ["themes/iceberg.toml"]
+live_config_reload = true
+
+[window]
+decorations = "Buttonless"
+dynamic_padding = true
+option_as_alt = "Both"
+padding = { x = 12, y = 12 }
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+size = 11.5
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[mouse]
+hide_when_typing = true
+
+[[hints.enabled]]
+command = "open"
+hyperlinks = true
+post_processing = true
+persist = false
+mouse = { enabled = true, mods = "Command" }
+binding = { key = "O", mods = "Control|Shift" }
+regex = '(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>"\s{-}\^⟨⟩`\\]+'
+
+[[keyboard.bindings]]
+key = "Enter"
+mods = "Command"
+action = "ToggleMaximized"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Command"
+action = "ToggleViMode"
