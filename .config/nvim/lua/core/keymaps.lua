@@ -103,17 +103,3 @@ end, { desc = "Resize right" })
 vim.keymap.set("n", "<leader>hb", function()
 	require("gitsigns").toggle_current_line_blame()
 end, { desc = "Toggle Git Blame" })
-
--------------------------------------------------
--- Copilot Chat
--------------------------------------------------
-map("n", "<leader>aa", "<cmd>CopilotChatToggle<CR>", { silent = true, desc = "AI Chat Toggle" })
-map("n", "<leader>ag", "<cmd>CopilotChatAgent<CR>", { silent = true, desc = "AI Agent Chat" })
-map("n", "<leader>ae", "<cmd>CopilotChatExplain<CR>", { silent = true, desc = "AI Explain" })
-map("n", "<leader>af", "<cmd>CopilotChatFix<CR>", { silent = true, desc = "AI Fix" })
-map("n", "<leader>at", "<cmd>CopilotChatTests<CR>", { silent = true, desc = "AI Generate Tests" })
-map("n", "<leader>ao", "<cmd>CopilotChatOptimize<CR>", { silent = true, desc = "AI Optimize" })
-map("n", "<leader>ad", "<cmd>CopilotChatDocs<CR>", { silent = true, desc = "AI Generate Docs" })
-map("n", "<leader>ac", "<cmd>CopilotChatCommit<CR>", { silent = true, desc = "AI Commit Message" })
-map("v", "<leader>ae", "<cmd>CopilotChatExplain<CR>", { silent = true, desc = "AI Explain Selection" })
-map("v", "<leader>af", "<cmd>CopilotChatFix<CR>", { silent = true, desc = "AI Fix Selection" })

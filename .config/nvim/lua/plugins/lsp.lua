@@ -70,8 +70,6 @@ return {
 		event = "InsertEnter",
 		dependencies = {
 			"L3MON4D3/LuaSnip",
-			"zbirenbaum/copilot.lua",
-			"fang2hou/blink-copilot",
 		},
 		opts = {
 			keymap = {
@@ -108,15 +106,9 @@ return {
 					"snippets",
 					"buffer",
 					"path",
-					"copilot",
 					"omni",
 				},
 				providers = {
-					copilot = {
-						module = "blink-copilot",
-						name = "copilot",
-						score_offset = 100,
-					},
 					buffer = {
 						opts = {
 							get_bufnrs = vim.api.nvim_list_bufs,
