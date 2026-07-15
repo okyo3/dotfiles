@@ -23,6 +23,8 @@ split_horizontal = "prefix+shift+h"
 close_pane = "prefix+d"
 zoom = "prefix+enter"
 resize_mode = "prefix+r"
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
 
 [[keys.command]]
 key = "alt+h"
