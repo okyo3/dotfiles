@@ -1,0 +1,63 @@
+onboarding = false
+
+[theme]
+name = "catppuccin"
+
+auto_switch = false
+[keys]
+prefix = "ctrl+l"
+settings = "prefix+p"
+detach = "prefix+q"
+workspace_picker = "prefix+ctrl+w"
+new_workspace = "prefix+ctrl+n"
+new_tab = "prefix+t"
+previous_tab = ["prefix+n", "alt+n"]
+next_tab = ["prefix+m", "alt+m"]
+close_tab = "prefix+w"
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+split_vertical = "prefix+shift+v"
+split_horizontal = "prefix+shift+h"
+close_pane = "prefix+d"
+zoom = "prefix+enter"
+resize_mode = "prefix+r"
+
+[[keys.command]]
+key = "alt+h"
+type = "shell"
+command = '"$HERDR_BIN_PATH" pane resize --direction left --amount 0.1 --current'
+description = "resize pane left"
+
+[[keys.command]]
+key = "alt+j"
+type = "shell"
+command = '"$HERDR_BIN_PATH" pane resize --direction down --amount 0.1 --current'
+description = "resize pane down"
+
+[[keys.command]]
+key = "alt+k"
+type = "shell"
+command = '"$HERDR_BIN_PATH" pane resize --direction up --amount 0.1 --current'
+description = "resize pane up"
+
+[[keys.command]]
+key = "alt+l"
+type = "shell"
+command = '"$HERDR_BIN_PATH" pane resize --direction right --amount 0.1 --current'
+description = "resize pane right"
+
+[ui]
+prompt_new_tab_name = false
+pane_gaps = false
+show_agent_labels_on_pane_borders = true
+hide_tab_bar_when_single_tab = true
+agent_panel_sort = "priority"
+
+[ui.toast]
+delivery = "terminal"
+delay_seconds = 2
+
+[experimental]
+switch_ascii_input_source_in_prefix = true

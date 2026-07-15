@@ -18,6 +18,12 @@ if [ -d "$DOTFILES_DIR/.config" ]; then
     name=$(basename "$dir")
     target="$HOME_DIR/.config/$name"
 
+    if [ "$name" = "herdr" ]; then
+      mkdir -p "$target"
+      ln -sfvn "$dir/config.toml" "$target/config.toml"
+      continue
+    fi
+
     ln -sfvn "$dir" "$target"
   done
 fi

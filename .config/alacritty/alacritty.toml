@@ -2,6 +2,9 @@
 import = ["themes/iceberg.toml"]
 live_config_reload = true
 
+[terminal]
+shell = { program = "/bin/zsh", args = ["-l", "-i", "-c", "unset HERDR_ENV HERDR_SOCKET_PATH HERDR_WORKSPACE_ID HERDR_TAB_ID HERDR_PANE_ID; exec herdr"] }
+
 [window]
 decorations = "Buttonless"
 dynamic_padding = true
@@ -10,7 +13,7 @@ padding = { x = 12, y = 12 }
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
-size = 11.5
+size = 10.5
 
 [scrolling]
 history = 10000
@@ -37,3 +40,18 @@ action = "ToggleMaximized"
 key = "C"
 mods = "Command"
 action = "ToggleViMode"
+
+[[keyboard.bindings]]
+key = "/"
+mods = "Command"
+action = "SearchForward"
+
+[[keyboard.bindings]]
+key = "="
+mods = "Command"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "-"
+mods = "Command"
+action = "DecreaseFontSize"
