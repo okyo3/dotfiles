@@ -25,6 +25,7 @@ zoom = "prefix+enter"
 resize_mode = "prefix+r"
 navigate_workspace_up = "k"
 navigate_workspace_down = "j"
+toggle_sidebar = ["prefix+b", "alt+b"]
 
 [[keys.command]]
 key = "alt+h"
