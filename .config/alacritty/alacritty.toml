@@ -52,6 +52,16 @@ mods = "Command"
 action = "IncreaseFontSize"
 
 [[keyboard.bindings]]
+key = "="
+mods = "Command|Shift"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "+"
+mods = "Command"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
 key = "-"
 mods = "Command"
 action = "DecreaseFontSize"
